@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "10"
+script:
+  - npm --prefix "./functions" install
+  - npm --prefix "./functions" run lint
+  - npm --prefix "./functions" run build
+deploy:
+  provider: firebase
+  skip_cleanup: true
+  token:
+    secure: $FIREBASE_TOKEN
